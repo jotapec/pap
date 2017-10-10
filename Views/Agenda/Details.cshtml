@@ -1,0 +1,58 @@
+﻿@model SalaoIedaV4.Models.Agenda
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Agenda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_data_agendada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_data_agendada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_servico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_servico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tempo_estimado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tempo_estimado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cancelamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cancelamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_cancelamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_cancelamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAgenda }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

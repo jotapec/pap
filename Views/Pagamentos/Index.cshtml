@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SalaoIedaV4.Models.Pagamentos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dt_pagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vl_pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vl_cobrado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status_pagamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dt_pagamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vl_pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vl_cobrado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status_pagamento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPagamentos }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPagamentos }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPagamentos })
+        </td>
+    </tr>
+}
+
+</table>

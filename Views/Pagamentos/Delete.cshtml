@@ -1,0 +1,56 @@
+﻿@model SalaoIedaV4.Models.Pagamentos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pagamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_pagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vl_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vl_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vl_cobrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vl_cobrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_pagamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

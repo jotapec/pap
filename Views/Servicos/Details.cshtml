@@ -1,0 +1,34 @@
+﻿@model SalaoIedaV4.Models.Servico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Servico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_comentario_servico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_comentario_servico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img_foto_servico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img_foto_servico)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idServico }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

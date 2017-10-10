@@ -1,0 +1,64 @@
+﻿@model SalaoIedaV4.Models.Agenda
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Agenda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_data_agendada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_data_agendada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_servico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_servico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tempo_estimado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tempo_estimado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cancelamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cancelamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_cancelamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_cancelamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

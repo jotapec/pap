@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SalaoIedaV4.Models.Telefone>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.num_tel_principal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.num_tel_secundario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_tel_principal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_tel_secundario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTelefone }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTelefone }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTelefone })
+        </td>
+    </tr>
+}
+
+</table>

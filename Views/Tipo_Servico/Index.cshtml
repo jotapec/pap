@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SalaoIedaV4.Models.Tipo_Servico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.desc_tipo_servico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dt_ini_vigencia_serv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dt_fim_vigencia_serv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.desc_tipo_servico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dt_ini_vigencia_serv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dt_fim_vigencia_serv)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTipos_Servico }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTipos_Servico }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTipos_Servico })
+        </td>
+    </tr>
+}
+
+</table>

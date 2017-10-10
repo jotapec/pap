@@ -1,0 +1,64 @@
+﻿@model SalaoIedaV4.Models.Tipos_Pagamento
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tipos_Pagamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_tipo_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_tipo_pagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_natureza_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_natureza_pagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_canal_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_canal_pagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_ini_vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_ini_vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_fim_vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_fim_vigencia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

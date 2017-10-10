@@ -1,0 +1,50 @@
+﻿@model SalaoIedaV4.Models.Pagamentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pagamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dt_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dt_pagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vl_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vl_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vl_cobrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vl_cobrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_pagamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPagamentos }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
