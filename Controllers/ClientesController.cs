@@ -46,10 +46,17 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCliente,desc_nome_cliente,data_cadastro,data_atualizacao,data_prox_servico,desc_email_cliente")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "idCliente, desc_nome_cliente,data_cadastro, data_atualizacao, data_prox_servico, desc_email_cliente, telefone.num_tel_principal, telefone.num_tel_secundario")] Cliente cliente, Telefone telefone)
         {
             if (ModelState.IsValid)
             {
+
+                cliente.data_cadastro = Datetime.now;
+                cliente.data_atualizacao = Datetime.now;
+                cliente.data_prox_servico = Datetime.now;
+                cliente.telefone = telefone;
+                
+                db.Telefones.add(telefone);
                 db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");

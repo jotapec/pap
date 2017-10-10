@@ -14,7 +14,7 @@ namespace SalaoIedaV4.Models
 
 
         [ScaffoldColumn(false)]
-        public virtual Telefone Telefone { get; set; }
+        public virtual Telefone telefone { get; set; }
 
 
         [Required(ErrorMessage = "Campo Obrigatório")]
