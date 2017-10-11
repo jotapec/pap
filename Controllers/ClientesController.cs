@@ -57,7 +57,7 @@ namespace SalaoIedaV4.Controllers
                 cliente.telefone = telefone;
 
                 cliente.telefone.data_atualizacao_principal = DateTime.Now;
-                cliente.telefone.data_atualizacao_principal = DateTime.Now;
+                cliente.telefone.data_atualizacao_secundario = DateTime.Now;
 
 
                 db.Telefones.Add(telefone);
@@ -89,10 +89,15 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCliente,desc_nome_cliente,data_cadastro,data_atualizacao,data_prox_servico,desc_email_cliente")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "idCliente,desc_nome_cliente,data_cadastro,data_atualizacao,data_prox_servico,desc_email_cliente, telefone.idTelefone, telefone.num_tel_principal, telefone.num_tel_secundario")] Cliente cliente, Telefone telefone)
         {
             if (ModelState.IsValid)
             {
+                cliente.data_atualizacao = DateTime.Now;
+                cliente.telefone.data_atualizacao_principal = DateTime.Now;
+                cliente.telefone.data_atualizacao_secundario = DateTime.Now;
+                
+                db.Entry(telefone).State = EntityState.Modified;
                 db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
