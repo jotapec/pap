@@ -51,12 +51,16 @@ namespace SalaoIedaV4.Controllers
             if (ModelState.IsValid)
             {
 
-                cliente.data_cadastro = Datetime.now;
-                cliente.data_atualizacao = Datetime.now;
-                cliente.data_prox_servico = Datetime.now;
+                cliente.data_cadastro = DateTime.Now;
+                cliente.data_atualizacao = DateTime.Now;
+                cliente.data_prox_servico = DateTime.Now;
                 cliente.telefone = telefone;
-                
-                db.Telefones.add(telefone);
+
+                cliente.telefone.data_atualizacao_principal = DateTime.Now;
+                cliente.telefone.data_atualizacao_principal = DateTime.Now;
+
+
+                db.Telefones.Add(telefone);
                 db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");

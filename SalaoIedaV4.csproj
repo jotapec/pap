@@ -167,6 +167,10 @@
     <Compile Include="Migrations\201710100220182_pap2.Designer.cs">
       <DependentUpon>201710100220182_pap2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710110203281_pap3.cs" />
+    <Compile Include="Migrations\201710110203281_pap3.Designer.cs">
+      <DependentUpon>201710110203281_pap3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agenda.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -391,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710100220182_pap2.resx">
       <DependentUpon>201710100220182_pap2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710110203281_pap3.resx">
+      <DependentUpon>201710110203281_pap3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

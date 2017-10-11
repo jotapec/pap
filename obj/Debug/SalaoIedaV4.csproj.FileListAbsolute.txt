@@ -95,3 +95,4 @@ C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.pdb
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap1.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csproj.GenerateResource.Cache
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap2.resources
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap3.resources

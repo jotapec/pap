@@ -17,7 +17,7 @@ namespace SalaoIedaV4.Controllers
         // GET: Agenda
         public ActionResult Index()
         {
-            return View(db.Agendas.ToList());
+            return View(db.Agendas.ToList()); //apenas mostrar os campos com data maior que a data atual.
         }
 
         // GET: Agenda/Details/5
