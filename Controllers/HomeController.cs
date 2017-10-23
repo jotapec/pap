@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalaoIedaV4.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,15 @@ namespace SalaoIedaV4.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            using (Context dc = new Context())
+            {
+                var events = dc.Agendas.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
         }
 
         public ActionResult About()
