@@ -41,7 +41,7 @@
                     $.each(data, function (i, v) {
                         events.push({
                             title: v.desc_servico,
-                            description: v.desc_nome_cliente,
+                            description: v.Cliente_idCliente,
                             start: moment(v.dt_data_agendada),
                             end: v.dt_data_agendada + v.tempo_estimado,
                             color: v.ThemeColor,

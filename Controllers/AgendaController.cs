@@ -38,6 +38,7 @@ namespace SalaoIedaV4.Controllers
         // GET: Agenda/Create
         public ActionResult Create()
         {
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             return View();
         }
 
@@ -46,17 +47,20 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idAgenda,dt_agendamento,dt_data_agendada,desc_servico,tempo_estimado,cancelamento,dt_cancelamento,dt_atualizacao")] Agenda agenda)
+        public ActionResult Create([Bind(Include = "idAgenda,dt_agendamento,dt_data_agendada,desc_servico,tempo_estimado,cancelamento,dt_cancelamento,dt_atualizacao")] Agenda agenda,string ClienteNome)
         {
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             if (ModelState.IsValid)
             {
                 agenda.dt_agendamento = DateTime.Now;
                 agenda.dt_atualizacao = DateTime.Now;
+                int idCliente = Convert.ToInt32(ClienteNome);
+                agenda.Cliente = db.Clientes.Find(idCliente);
                 db.Agendas.Add(agenda);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(agenda);
         }
 

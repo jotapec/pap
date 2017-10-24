@@ -19,6 +19,7 @@ namespace SalaoIedaV4.Controllers
             using (Context dc = new Context())
             {
                 var events = dc.Agendas.ToList();
+                
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
