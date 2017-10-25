@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -24,7 +25,7 @@ namespace SalaoIedaV4.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name = "Data Agendada")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime dt_data_agendada { get; set; }
 
 
@@ -40,8 +41,8 @@ namespace SalaoIedaV4.Models
         [Display(Name = "Cancelamento?")]
         public bool cancelamento { get; set; }
 
-        [Display(Name = "Data cancelamento")]
-        [DataType(DataType.Date)]
+        
+        [ScaffoldColumn(false)]
         public DateTime dt_cancelamento { get; set; }
 
         [ScaffoldColumn(false)]
