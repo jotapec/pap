@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Servicos",FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -14,6 +14,15 @@
         <h4>Servico</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cliente.desc_nome_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ClienteNome")
+                @Html.ValidationMessage("ClienteNome", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.desc_comentario_servico, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -25,8 +34,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.img_foto_servico, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.img_foto_servico, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.img_foto_servico, "", new { @class = "text-danger" })
+                <input type="file" name="img_foto" id="img_foto" style="width: 100%;" /> <br />      
+                @Html.ValidationMessageFor(model => model.img_foto_servico, "", new { @class = "text-danger" })        
             </div>
         </div>
 

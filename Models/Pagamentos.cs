@@ -13,6 +13,8 @@ namespace SalaoIedaV4.Models
         [Key]
         public int idPagamentos { get; set; }
 
+        [ScaffoldColumn(false)]
+        public virtual Agenda Agenda { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual Tipos_Pagamento Tipos_Pagamento { get; set; }

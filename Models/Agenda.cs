@@ -20,6 +20,10 @@ namespace SalaoIedaV4.Models
         [ScaffoldColumn(false)]
         public virtual Cliente Cliente { get; set; }
 
+ 
+
+
+
         [ScaffoldColumn(false)]
         public DateTime dt_agendamento { get; set; }
 

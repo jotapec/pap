@@ -38,6 +38,7 @@ namespace SalaoIedaV4.Controllers
         // GET: Servicos/Create
         public ActionResult Create()
         {
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             return View();
         }
 
@@ -46,13 +47,25 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idServico,data_servico,desc_comentario_servico,img_foto_servico")] Servico servico)
+        public ActionResult Create([Bind(Include = "idServico,data_servico,desc_comentario_servico,img_foto_servico")] Servico servico, HttpPostedFileBase img_foto, string ClienteNome)
         {
             if (ModelState.IsValid)
             {
-                db.Servicos.Add(servico);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (img_foto != null)
+                {
+                    ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
+                    String ImageName = System.IO.Path.GetFileName(img_foto.FileName);
+                    String physicalPath = Server.MapPath("~/Images/" + ImageName);
+                    img_foto.SaveAs(physicalPath);
+                    servico.img_foto_servico = ImageName;
+                    servico.data_servico = DateTime.Now;
+                    int idCliente = Convert.ToInt32(ClienteNome);
+                    servico.Cliente = db.Clientes.Find(idCliente);
+                    db.Servicos.Add(servico);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                    
             }
 
             return View(servico);
@@ -70,6 +83,7 @@ namespace SalaoIedaV4.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             return View(servico);
         }
 
@@ -78,10 +92,18 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idServico,data_servico,desc_comentario_servico,img_foto_servico")] Servico servico)
+        public ActionResult Edit([Bind(Include = "idServico,data_servico,desc_comentario_servico,img_foto_servico")] Servico servico, HttpPostedFileBase img_foto, string ClienteNome)
         {
             if (ModelState.IsValid)
             {
+                ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
+                String ImageName = System.IO.Path.GetFileName(img_foto.FileName);
+                String physicalPath = Server.MapPath("~/Images/" + ImageName);
+                img_foto.SaveAs(physicalPath);
+                servico.img_foto_servico = ImageName;
+                servico.data_servico = DateTime.Now;
+                int idCliente = Convert.ToInt32(ClienteNome);
+                servico.Cliente = db.Clientes.Find(idCliente);
                 db.Entry(servico).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

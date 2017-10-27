@@ -14,6 +14,24 @@
         <h4>Pagamentos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Agenda.Cliente.desc_nome_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DataServicos", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Agenda.Cliente.desc_nome_cliente, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipos_Pagamento.desc_tipo_pagamento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TipoPagamento", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Tipos_Pagamento.desc_tipo_pagamento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
         <div class="form-group">
             @Html.LabelFor(model => model.dt_pagamento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

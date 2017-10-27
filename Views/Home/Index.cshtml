@@ -40,15 +40,17 @@
                 success: function (data)
                 {
                     $.each(data, function (i, v) {
-                        events.push({
-                            title: v.Cliente.desc_nome_cliente,
-                            description: v.Tipo_Servico.desc_tipo_servico + " - " + v.desc_servico,
-                            telefone: v.Cliente.telefone.num_tel_principal,
-                            start: moment(v.dt_data_agendada),
-                            end: moment(v.dt_cancelamento),
-                            color: v.ThemeColor,
-                            allDay: false
-                        });
+                        if (v.cancelamento == false) {
+                            events.push({
+                                title: v.Cliente.desc_nome_cliente,
+                                description: v.Tipo_Servico.desc_tipo_servico + " - " + v.desc_servico,
+                                telefone: v.Cliente.telefone.num_tel_principal,
+                                start: moment(v.dt_data_agendada),
+                                end: moment(v.dt_cancelamento),
+                                color: v.ThemeColor,
+                                allDay: false
+                            });
+                        }
                     })
                     GenerateCalendar(events);
                 },

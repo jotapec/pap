@@ -38,6 +38,8 @@ namespace SalaoIedaV4.Controllers
         // GET: Pagamentos/Create
         public ActionResult Create()
         {
+            ViewBag.DataServicos = new SelectList(db.Agendas.Include(a => a.Cliente), "idAgenda", "Cliente.desc_nome_cliente", "dt_data_agendada");
+            ViewBag.TipoPagamento = new SelectList(db.Tipos_Pagamentos, "idTipos_pagamento", "desc_tipo_pagamento");
             return View();
         }
 
@@ -46,10 +48,16 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idPagamentos,dt_pagamento,vl_pago,vl_cobrado,status_pagamento")] Pagamentos pagamentos)
+        public ActionResult Create([Bind(Include = "idPagamentos,dt_pagamento,vl_pago,vl_cobrado,status_pagamento")] Pagamentos pagamentos, string DataServicos, string TipoPagamento)
         {
+            ViewBag.DataServicos = new SelectList(db.Agendas.Include(a => a.Cliente), "idAgenda", "Cliente.desc_nome_cliente","dt_data_agendada");
+            ViewBag.TipoPagamento = new SelectList(db.Tipos_Pagamentos, "idTipos_pagamento", "desc_tipo_pagamento");
             if (ModelState.IsValid)
             {
+                int idAgenda = Convert.ToInt32(DataServicos);
+                pagamentos.Agenda = db.Agendas.Find(idAgenda);
+                int idTipos_pagamento = Convert.ToInt32(TipoPagamento);
+                pagamentos.Tipos_Pagamento = db.Tipos_Pagamentos.Find(idTipos_pagamento);
                 db.Pagamentos.Add(pagamentos);
                 db.SaveChanges();
                 return RedirectToAction("Index");

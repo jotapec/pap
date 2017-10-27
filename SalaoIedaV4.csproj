@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201710242327437_v9.Designer.cs">
       <DependentUpon>201710242327437_v9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710262058538_v10.cs" />
+    <Compile Include="Migrations\201710262058538_v10.Designer.cs">
+      <DependentUpon>201710262058538_v10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agenda.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -346,11 +350,6 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\Pagamentos\Create.cshtml" />
-    <Content Include="Views\Pagamentos\Delete.cshtml" />
-    <Content Include="Views\Pagamentos\Details.cshtml" />
-    <Content Include="Views\Pagamentos\Edit.cshtml" />
-    <Content Include="Views\Pagamentos\Index.cshtml" />
     <Content Include="Views\Servicos\Create.cshtml" />
     <Content Include="Views\Servicos\Delete.cshtml" />
     <Content Include="Views\Servicos\Details.cshtml" />
@@ -376,6 +375,11 @@
     <Content Include="Views\Agenda\Details.cshtml" />
     <Content Include="Views\Agenda\Edit.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Pagamentos\Create.cshtml" />
+    <Content Include="Views\Pagamentos\Delete.cshtml" />
+    <Content Include="Views\Pagamentos\Details.cshtml" />
+    <Content Include="Views\Pagamentos\Edit.cshtml" />
+    <Content Include="Views\Pagamentos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -383,6 +387,7 @@
     <Folder Include="Content\dist\js\" />
     <Folder Include="Content\PanelContent\fonts\" />
     <Folder Include="Content\PanelContent\img\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -414,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710242327437_v9.resx">
       <DependentUpon>201710242327437_v9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710262058538_v10.resx">
+      <DependentUpon>201710262058538_v10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

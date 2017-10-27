@@ -93,10 +93,12 @@ namespace SalaoIedaV4.Controllers
         {
             if (ModelState.IsValid)
             {
+                cliente.data_cadastro = DateTime.Now;
+                telefone.data_atualizacao_principal = DateTime.Now;
+                telefone.data_atualizacao_secundario = DateTime.Now;
                 cliente.data_atualizacao = DateTime.Now;
-                cliente.telefone.data_atualizacao_principal = DateTime.Now;
-                cliente.telefone.data_atualizacao_secundario = DateTime.Now;
-                
+                cliente.data_prox_servico = DateTime.Now;
+
                 db.Entry(telefone).State = EntityState.Modified;
                 db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();

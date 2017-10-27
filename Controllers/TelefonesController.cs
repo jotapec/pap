@@ -82,6 +82,9 @@ namespace SalaoIedaV4.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                telefone.data_atualizacao_principal = DateTime.Now;
+                telefone.data_atualizacao_secundario = DateTime.Now;
                 db.Entry(telefone).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

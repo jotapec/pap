@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 using SalaoIedaV4.Models;
 
 namespace SalaoIedaV4.Controllers
@@ -81,6 +82,8 @@ namespace SalaoIedaV4.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
+            ViewBag.TipoServ = new SelectList(db.Tipo_Servicos, "idTipos_Servico", "desc_tipo_servico");
             return View(agenda);
         }
 
@@ -89,11 +92,22 @@ namespace SalaoIedaV4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idAgenda,dt_agendamento,dt_data_agendada,desc_servico,tempo_estimado,cancelamento,dt_cancelamento,dt_atualizacao")] Agenda agenda)
+        public ActionResult Edit([Bind(Include = "idAgenda,dt_agendamento,dt_data_agendada,desc_servico,tempo_estimado,cancelamento,dt_cancelamento,dt_atualizacao")] Agenda agenda, string ClienteNome, string TipoServ)
         {
+            ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
+            ViewBag.TipoServ = new SelectList(db.Tipo_Servicos, "idTipos_Servico", "desc_tipo_servico");
             if (ModelState.IsValid)
             {
+                
+                agenda.dt_cancelamento = agenda.dt_data_agendada.AddMinutes(agenda.tempo_estimado);
+                agenda.dt_agendamento = DateTime.Now;
+                agenda.dt_atualizacao = DateTime.Now;
+                int idCliente = Convert.ToInt32(ClienteNome);
+                int idTipos_Servico = Convert.ToInt32(TipoServ);
+                agenda.Cliente = db.Clientes.Find(idCliente);                
+                agenda.Tipo_Servico = db.Tipo_Servicos.Find(idTipos_Servico);
                 db.Entry(agenda).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -98,3 +98,4 @@ C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migr
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap3.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v8.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v9.resources
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v10.resources
