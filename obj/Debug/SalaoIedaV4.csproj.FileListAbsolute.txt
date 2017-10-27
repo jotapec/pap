@@ -89,13 +89,13 @@ C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\bin\Microsoft.AI.ServerTel
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\bin\Microsoft.AI.Web.xml
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csprojResolveAssemblyReference.cache
-C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csproj.CoreCompileInputs.cache
-C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.dll
-C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.pdb
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap1.resources
-C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csproj.GenerateResource.Cache
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap2.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.pap3.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v8.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v9.resources
 C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.Migrations.v10.resources
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csproj.GenerateResource.Cache
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.csproj.CoreCompileInputs.cache
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.dll
+C:\Users\Jotapec\source\repos\SalaoIedaV4\SalaoIedaV4\obj\Debug\SalaoIedaV4.pdb

@@ -106,9 +106,23 @@ namespace SalaoIedaV4.Controllers
                 int idTipos_Servico = Convert.ToInt32(TipoServ);
                 agenda.Cliente = db.Clientes.Find(idCliente);                
                 agenda.Tipo_Servico = db.Tipo_Servicos.Find(idTipos_Servico);
-                db.Entry(agenda).State = EntityState.Modified;
+                //db.Entry(agenda) = agenda;
+                var actAgenda = db.Agendas.FirstOrDefault(o => o.idAgenda == agenda.idAgenda);
+                
+
+                actAgenda.Cliente = agenda.Cliente;
+
+                actAgenda.Tipo_Servico = agenda.Tipo_Servico;
+                actAgenda.dt_agendamento = agenda.dt_agendamento;
+                actAgenda.dt_data_agendada = agenda.dt_data_agendada;
+                actAgenda.desc_servico = agenda.desc_servico;
+                actAgenda.tempo_estimado = agenda.tempo_estimado;
+                actAgenda.cancelamento = agenda.cancelamento;
+                actAgenda.dt_cancelamento = agenda.dt_cancelamento;
+                actAgenda.dt_atualizacao = agenda.dt_atualizacao;
 
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(agenda);
