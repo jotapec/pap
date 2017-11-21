@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Relatorio</h2>
+
+
+
+<div>
+    <dl  >
+        <dt width ="600px" >
+            Quantidade de clientes cadastrados: 
+            @Html.Display("ClienteCount")
+        </dt>
+        <dt>
+            Quantidade de serviços salvos:
+            @Html.Display("ServicoCount")
+        </dt>
+        <dt>
+            Quantidade de agendamentos (mês atual): 
+            @Html.Display("AgendaMesCount")
+        </dt>
+        <dt>
+            Quantidade de agendamentos (total):
+            @Html.Display("AgendaTotalCount")
+        </dt>
+        <dt>
+            Quantidade de agendamentos pot tipo (mês):
+            
+            @foreach (var teste in ViewBag.AgendaMesTipoCount)
+            {
+                <br />
+                @teste.NomeTipoServico <b> : </b>
+                @teste.agendas
+            }
+
+        </dt>
+        <dt>
+            Quantidade de agendamentos pot tipo (total):
+
+            @foreach (var teste in ViewBag.AgendaTotalTipoCount)
+            {
+                <br />
+                @teste.NomeTipoServico <b> : </b>
+                @teste.agendas
+            }
+
+        </dt>
+        
+    </dl>
+</div>

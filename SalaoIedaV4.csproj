@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagamentosController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ServicosController.cs" />
     <Compile Include="Controllers\TelefonesController.cs" />
     <Compile Include="Controllers\Tipos_PagamentoController.cs" />
@@ -314,6 +315,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -380,6 +382,7 @@
     <Content Include="Views\Pagamentos\Details.cshtml" />
     <Content Include="Views\Pagamentos\Edit.cshtml" />
     <Content Include="Views\Pagamentos\Index.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
