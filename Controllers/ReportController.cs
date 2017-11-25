@@ -24,6 +24,8 @@ namespace SalaoIedaV4.Controllers
             ViewBag.AgendaTotalCount = dc.Agendas.Where(a => a.cancelamento == false).Count();
             ViewBag.AgendaMesTipoCount = dc.Agendas.Where(a => a.dt_data_agendada.Month == DateTime.Now.Month && a.cancelamento == false).GroupBy(a => a.Tipo_Servico.desc_tipo_servico).Select(x => new AgendaTipo {NomeTipoServico = x.Key, agendas = x.Count()} ).ToList();
             ViewBag.AgendaTotalTipoCount = dc.Agendas.GroupBy(a => a.Tipo_Servico.desc_tipo_servico).Select(x => new AgendaTipo { NomeTipoServico = x.Key, agendas = x.Count() }).ToList();
+            ViewBag.ValorMesSum = dc.Pagamentos.Where(a => a.dt_pagamento.Month == DateTime.Now.Month).Select(x => x.vl_pago).Sum();
+            ViewBag.ValorTotalSum = dc.Pagamentos.Select(x => x.vl_pago).Sum(); ;
             return View();
         }
         

@@ -25,26 +25,41 @@
             Quantidade de agendamentos (total):
             @Html.Display("AgendaTotalCount")
         </dt>
+        <br />
         <dt>
-            Quantidade de agendamentos pot tipo (mês):
+            Quantidade de agendamentos por tipo (mês):
             
             @foreach (var teste in ViewBag.AgendaMesTipoCount)
             {
                 <br />
+                <b>&emsp;&emsp;-   </b>
                 @teste.NomeTipoServico <b> : </b>
                 @teste.agendas
             }
 
         </dt>
+        <br />
         <dt>
-            Quantidade de agendamentos pot tipo (total):
+            Quantidade de agendamentos por tipo (total):
 
             @foreach (var teste in ViewBag.AgendaTotalTipoCount)
             {
                 <br />
+                <b>&emsp;&emsp;-   </b>
                 @teste.NomeTipoServico <b> : </b>
                 @teste.agendas
             }
+
+        </dt>
+        <br />
+        <dt>
+            Valor recebido (total):
+            @Html.Display("ValorTotalSum")
+
+        </dt>
+        <dt>
+            Valor recebido (mês):
+            @Html.Display("ValorMesSum")
 
         </dt>
         

@@ -38,7 +38,7 @@ namespace SalaoIedaV4.Controllers
         // GET: Pagamentos/Create
         public ActionResult Create()
         {
-            ViewBag.DataServicos = new SelectList(db.Agendas.Include(a => a.Cliente), "idAgenda", "Cliente.desc_nome_cliente", "dt_data_agendada");
+            ViewBag.DataServicos = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             ViewBag.TipoPagamento = new SelectList(db.Tipos_Pagamentos, "idTipos_pagamento", "desc_tipo_pagamento");
             return View();
         }
@@ -50,7 +50,7 @@ namespace SalaoIedaV4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idPagamentos,dt_pagamento,vl_pago,vl_cobrado,status_pagamento")] Pagamentos pagamentos, string DataServicos, string TipoPagamento)
         {
-            ViewBag.DataServicos = new SelectList(db.Agendas.Include(a => a.Cliente), "idAgenda", "Cliente.desc_nome_cliente","dt_data_agendada");
+            ViewBag.DataServicos = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             ViewBag.TipoPagamento = new SelectList(db.Tipos_Pagamentos, "idTipos_pagamento", "desc_tipo_pagamento");
             if (ModelState.IsValid)
             {

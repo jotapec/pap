@@ -11,12 +11,27 @@ using SalaoIedaV4.Models;
 
 namespace SalaoIedaV4.Controllers
 {
+    
+
     public class AgendaController : Controller
     {
         private Context db = new Context();
 
-        // GET: Agenda
-        public ActionResult Index()
+        public bool VerificaHorario(DateTime dtIni, DateTime dtFim)
+        {
+            
+            var testeData = db.Agendas.Where(a=>a.dt_agendamento.Date == dtIni.Date && ((a.dt_cancelamento >= dtIni && dtIni >= a.dt_data_agendada) || (a.dt_data_agendada >= dtIni && a.dt_cancelamento >= dtFim && dtFim  >= a.dt_data_agendada)));
+            if (testeData == null)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
+        }
+
+    // GET: Agenda
+    public ActionResult Index()
         {
             return View(db.Agendas.ToList()); //apenas mostrar os campos com data maior que a data atual.
         }
@@ -53,21 +68,30 @@ namespace SalaoIedaV4.Controllers
         {
             ViewBag.ClienteNome = new SelectList(db.Clientes, "idCliente", "desc_nome_cliente");
             ViewBag.TipoServ = new SelectList(db.Tipo_Servicos, "idTipos_Servico", "desc_tipo_servico");
-            if (ModelState.IsValid)
+            agenda.dt_cancelamento = agenda.dt_data_agendada.AddMinutes(agenda.tempo_estimado);
+            if (VerificaHorario(agenda.dt_data_agendada,agenda.dt_cancelamento))
             {
-                agenda.dt_cancelamento = agenda.dt_data_agendada.AddMinutes(agenda.tempo_estimado);
-                agenda.dt_agendamento = DateTime.Now;
-                agenda.dt_atualizacao = DateTime.Now;
-                int idCliente = Convert.ToInt32(ClienteNome);
-                int idTipos_Servico = Convert.ToInt32(TipoServ);
-                agenda.Cliente = db.Clientes.Find(idCliente);
-                agenda.Tipo_Servico = db.Tipo_Servicos.Find(idTipos_Servico);
-                db.Agendas.Add(agenda);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["alertMessage"] = "Horario indisponivel";
+                //return Content("<script language='javascript' type='text/javascript'>alert     ('Horario indisponivel');</script>");
             }
-            
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    agenda.dt_agendamento = DateTime.Now;
+                    agenda.dt_atualizacao = DateTime.Now;
+                    int idCliente = Convert.ToInt32(ClienteNome);
+                    int idTipos_Servico = Convert.ToInt32(TipoServ);
+                    agenda.Cliente = db.Clientes.Find(idCliente);
+                    agenda.Tipo_Servico = db.Tipo_Servicos.Find(idTipos_Servico);
+                    db.Agendas.Add(agenda);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
             return View(agenda);
+
+
         }
 
         // GET: Agenda/Edit/5
