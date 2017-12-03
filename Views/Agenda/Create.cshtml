@@ -25,7 +25,7 @@
             @Html.LabelFor(model => model.Cliente.desc_nome_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ClienteNome", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Cliente.desc_nome_cliente, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Cliente.desc_nome_cliente, "", new { @class = "text-danger"})
                 
             </div>
         </div>
@@ -68,7 +68,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Criar" class="btn btn-default" />
 
                 @if (null != TempData["alertMessage"])
                 {
@@ -83,5 +83,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar a tela Anterior", "Index")
 </div>

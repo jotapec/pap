@@ -20,13 +20,13 @@ namespace SalaoIedaV4.Controllers
         public bool VerificaHorario(DateTime dtIni, DateTime dtFim)
         {
             
-            var testeData = db.Agendas.Where(a=>a.dt_agendamento.Date == dtIni.Date && ((a.dt_cancelamento >= dtIni && dtIni >= a.dt_data_agendada) || (a.dt_data_agendada >= dtIni && a.dt_cancelamento >= dtFim && dtFim  >= a.dt_data_agendada)));
-            if (testeData == null)
-            {
-                return false;
-            }else
+            var testeData = db.Agendas.Where(a=>DbFunctions.TruncateTime(a.dt_data_agendada) == dtIni.Date && ((a.dt_cancelamento >= dtIni && dtIni >= a.dt_data_agendada) || (a.dt_data_agendada >= dtIni && a.dt_cancelamento >= dtFim && dtFim  >= a.dt_data_agendada))).ToList();
+            if (testeData.Any())
             {
                 return true;
+            }else
+            {
+                return false;
             }
         }
 
@@ -71,7 +71,8 @@ namespace SalaoIedaV4.Controllers
             agenda.dt_cancelamento = agenda.dt_data_agendada.AddMinutes(agenda.tempo_estimado);
             if (VerificaHorario(agenda.dt_data_agendada,agenda.dt_cancelamento))
             {
-                TempData["alertMessage"] = "Horario indisponivel";
+                //TempData["alertMessage"] = "Horario indisponivel";
+                ModelState.AddModelError("", "ATENÇÃO -- Horario indisponível ----");
                 //return Content("<script language='javascript' type='text/javascript'>alert     ('Horario indisponivel');</script>");
             }
             else

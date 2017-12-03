@@ -4,8 +4,9 @@
 
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.1/fullcalendar.print.css" media="print" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.1/fullcalendar.min.css" rel="stylesheet" />
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.1/fullcalendar.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/locale/pt-br.js" ></script>
 <div id="calendar"></div>
 
 
@@ -62,6 +63,7 @@
             {
                 $('#calendar').fullCalendar('destroy');
                 $('#calendar').fullCalendar({
+                    locale: 'pt-br',
                     contentHeight: 800,
                     defaultDate: new Date(),
                     timeFormat: 'h(:mm)a',
